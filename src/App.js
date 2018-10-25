@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import TodoInput from './components/TodoInput'
 import './App.css';
 
 class App extends Component {
@@ -20,8 +21,7 @@ class App extends Component {
       <div className="App">
         <h1>我的待办</h1>
         <div className="inputWrapper">
-          {/*注意 value= 后面不要加引号，加了你试下，会错*/}
-          <input type="text" value={this.state.newTodo}/>
+          <TodoInput content={this.state.newTodo}/>
         </div>
         <ol>
           {todos}
