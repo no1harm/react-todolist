@@ -8,10 +8,14 @@ class TodoItem extends Component{
             checked={this.props.todo.status === 'completed'}
             onChange={this.toggle.bind(this)}/>
             {this.props.todo.title}
+            <button onClick={this.delete.bind(this)}>删除</button>
         </div>)
     }
     toggle(e){
         this.props.onToggle(e, this.props.todo)
+    }
+    delete(e){
+        this.props.onDelete(e,this.props.todo)
     }
 }
 
