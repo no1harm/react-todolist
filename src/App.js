@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import TodoInput from './components/TodoInput'
 import TodoItem from './components/TodoItem'
 import './App.css';
@@ -20,7 +19,7 @@ class App extends Component {
     let todos = this.state.todoList.map((item,index)=>{
       return (
         <li key={index}>
-          <TodoItem todo={item}/>
+          <TodoItem todo={item} onToggle={this.toggle.bind(this)}/>
         </li>
       )
     })
@@ -28,7 +27,11 @@ class App extends Component {
       <div className="App">
         <h1>Todo List</h1>
         <div className="inputWrapper">
-          <TodoInput content={this.state.newTodo} onSubmit={this.addTodo.bind(this)}/>
+          <TodoInput 
+          content={this.state.newTodo} 
+          onSubmit={this.addTodo.bind(this)}
+          onChange={this.changeTitle.bind(this)}
+          />
         </div>
         <ol>
           {todos}
@@ -47,6 +50,16 @@ class App extends Component {
       newTodo: '',
       todoList: this.state.todoList
     })
+  }
+  changeTitle(event){
+    this.setState({
+      newTodo: event.target.value,
+      todoList: this.state.todoList
+    })
+  }
+  toggle(e, todo){
+    todo.status = todo.status === 'completed' ? '' : 'completed'
+    this.setState(this.state) 
   }
 }
 
