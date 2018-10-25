@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import Welcome from './components/Welcome'
+import App from './App';
+// import Welcome from './components/Welcome'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Welcome name="no1harm"/>,
+  <App/>,
   document.getElementById('root')
 )
 
