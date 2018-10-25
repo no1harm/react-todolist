@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoInput from './components/TodoInput'
 import TodoItem from './components/TodoItem'
+import * as localStore from './components/localStorage'
 import './App.css';
 import 'normalize.css'
 import './reset.css'
@@ -10,9 +11,7 @@ class App extends Component {
     super(props)
     this.state = {
       newTodo: '',
-      todoList: [
-
-      ]
+      todoList: localStore.load('todoList') || []
     }
   }
   render() {
@@ -44,6 +43,9 @@ class App extends Component {
       </div>
     );
   }
+  componentDidUpdate(){
+    localStore.save('todoList', this.state.todoList)
+  }
   addTodo(event){
     this.state.todoList.push({
       id: idMaker(),
@@ -64,7 +66,7 @@ class App extends Component {
   }
   toggle(e, todo){
     todo.status = todo.status === 'completed' ? '' : 'completed'
-    this.setState(this.state) 
+    this.setState(this.state)
   }
   delete(event, todo){
     todo.deleted = true
