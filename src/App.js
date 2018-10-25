@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import TodoInput from './components/TodoInput'
 import TodoItem from './components/TodoItem'
 import './App.css';
+import 'normalize.css'
+import './reset.css'
 
 class App extends Component {
   constructor(props){
