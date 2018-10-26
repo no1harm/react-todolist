@@ -18,7 +18,7 @@ class TodoInput extends Component{
       }
     render(){
         return (
-        <from>
+        <form>
             <label>
                 标题:
                 <input type='text' 
@@ -39,7 +39,7 @@ class TodoInput extends Component{
                 />
             </label>
             <button onClick={this.submit.bind(this)}>提交</button>
-        </from>)
+        </form>)
     }
     submit(e){
         let title = this.refs.title.value,content= this.refs.content.value;
