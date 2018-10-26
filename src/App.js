@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      user:{},
       newTodo: '',
       newContent:'',
       todoList: []
@@ -31,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo List</h1>
+        <h3>{this.state.user.username||'我'}的待办</h3>
         <div className="inputWrapper">
           <TodoInput 
           content={this.state.newTodo}
@@ -42,9 +44,13 @@ class App extends Component {
         <ol className="todoList">
           {todos}
         </ol>
-        <UserDialog/>
+        <UserDialog onSignUp={this.onSignUp.bind(this)}/>
       </div>
     );
+  }
+  onSignUp(user){
+    this.state.user = user
+    this.setState(this.state)
   }
   componentDidUpdate(){
   }
