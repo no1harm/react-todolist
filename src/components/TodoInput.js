@@ -1,17 +1,50 @@
 import React, { Component } from 'react';
 
 class TodoInput extends Component{
+    constructor(props) {
+        super(props)
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+    handleInputChange(event) {
+        // const target = event.target;
+        // const value = target.type === 'checkbox' ? target.checked : target.value;
+        // const name = target.name;
+        let title = this.refs.title.value,content= this.refs.content.value;
+        // console.log(title,content);
+        // this.props.onCommentSubmit({title,content});
+        
+        this.props.onChange({title,content})
+        
+      }
     render(){
-        return <input type='text' 
-        value={this.props.content} 
-        onKeyPress={this.submit.bind(this)}
-        onChange={this.changeTitle.bind(this)}
-        />
+        return (
+        <from>
+            <label>
+                标题:
+                <input type='text' 
+                name='title'
+                ref="title"
+                value={this.props.content} 
+                // onKeyPress={this.submit.bind(this)}
+                onChange={this.handleInputChange}
+                />
+            </label>
+            <label>
+                内容:
+                <textarea
+                name='content' 
+                ref="content"
+                value={this.props.contents}
+                onChange={this.handleInputChange}
+                />
+            </label>
+            <button onClick={this.submit.bind(this)}>提交</button>
+        </from>)
     }
     submit(e){
-        if(e.key === "Enter"){
-            this.props.onSubmit(e)
-        }
+        let title = this.refs.title.value,content= this.refs.content.value;
+        console.log(title,content);
+        this.props.onSubmit({title,content})
     }
     changeTitle(e){
         this.props.onChange(e)

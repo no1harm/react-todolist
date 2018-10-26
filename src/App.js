@@ -11,6 +11,7 @@ class App extends Component {
     super(props)
     this.state = {
       newTodo: '',
+      newContent:'',
       todoList: localStore.load('todoList') || []
     }
   }
@@ -32,7 +33,8 @@ class App extends Component {
         <h1>Todo List</h1>
         <div className="inputWrapper">
           <TodoInput 
-          content={this.state.newTodo} 
+          content={this.state.newTodo}
+          contents={this.state.newContent}
           onSubmit={this.addTodo.bind(this)}
           onChange={this.changeTitle.bind(this)}
           />
@@ -46,21 +48,24 @@ class App extends Component {
   componentDidUpdate(){
     localStore.save('todoList', this.state.todoList)
   }
-  addTodo(event){
+  addTodo({title,content}){
     this.state.todoList.push({
       id: idMaker(),
-      title: event.target.value,
+      title: title,
+      content:content,
       status: null,
       deleted: false
     })
     this.setState({
       newTodo: '',
+      newContent:'',
       todoList: this.state.todoList
     })
   }
-  changeTitle(event){
+  changeTitle({title,content}){
     this.setState({
-      newTodo: event.target.value,
+      newTodo: title,
+      newContent:content, 
       todoList: this.state.todoList
     })
   }
