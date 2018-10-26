@@ -45,3 +45,8 @@ function getUserFromAVUser(AVUser){
    ...AVUser.attributes
  }
 }
+
+export function signOut(){
+  AV.User.logOut()
+  return undefined
+}

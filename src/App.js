@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TodoInput from './components/TodoInput'
 import TodoItem from './components/TodoItem'
 import UserDialog from './components/UserDialog'
-import {getCurrentUser} from './leanCloud'
+import {getCurrentUser, signOut} from './leanCloud'
 import './App.css';
 import 'normalize.css'
 import './reset.css'
@@ -33,7 +33,10 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todo List</h1>
-        <h3>{this.state.user.username||'我'}的待办</h3>
+        <h3>
+          {this.state.user.username||'我'}的待办
+          {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
+        </h3>
         <div className="inputWrapper">
           <TodoInput 
           content={this.state.newTodo}
@@ -48,6 +51,12 @@ class App extends Component {
         {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUp.bind(this)}/>}
       </div>
     );
+  }
+  signOut(){
+    signOut()
+    let stateCopy = JSON.parse(JSON.stringify(this.state))
+    stateCopy.user = {}
+    this.setState(stateCopy)
   }
   onSignUp(user){
     let stateCopy = JSON.parse(JSON.stringify(this.state)) 
