@@ -42,6 +42,7 @@ class TodoInput extends Component{
         </form>)
     }
     submit(e){
+        e.preventDefault()
         let title = this.refs.title.value,content= this.refs.content.value;
         console.log(title,content);
         this.props.onSubmit({title,content})
