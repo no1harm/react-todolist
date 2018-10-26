@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TodoInput from './components/TodoInput'
 import TodoItem from './components/TodoItem'
 import UserDialog from './components/UserDialog'
+import {getCurrentUser} from './leanCloud'
 import './App.css';
 import 'normalize.css'
 import './reset.css'
@@ -10,7 +11,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      user:{},
+      user: getCurrentUser() || {},
       newTodo: '',
       newContent:'',
       todoList: []
