@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TodoInput from './components/TodoInput'
 import TodoItem from './components/TodoItem'
 import UserDialog from './components/UserDialog'
-import {getCurrentUser, signOut} from './leanCloud'
+import {getCurrentUser, signOut, TodoModel} from './leanCloud'
 import './App.css';
 import 'normalize.css'
 import './reset.css'
@@ -70,17 +70,22 @@ class App extends Component {
   componentDidUpdate(){
   }
   addTodo({title,content}){
-    this.state.todoList.push({
-      id: idMaker(),
+    let newTodo = {
       title: title,
       content:content,
       status: null,
       deleted: false
-    })
-    this.setState({
-      newTodo: '',
-      newContent:'',
-      todoList: this.state.todoList
+    }
+    TodoModel.create(newTodo, (id) => {
+      newTodo.id = id
+      this.state.todoList.push(newTodo)
+      this.setState({
+        newTodo: '',
+        newContent:'',
+        todoList: this.state.todoList
+      })
+    }, (error) => {
+      console.log(error)
     })
   }
   changeTitle({title,content}){
@@ -101,9 +106,3 @@ class App extends Component {
 }
 
 export default App;
-
-let id = 0
- function idMaker(){
-  id += 1
-  return id
-}
