@@ -81,7 +81,7 @@ class App extends Component {
     let newTodo = {
       title: title,
       content:content,
-      status: null,
+      status: '',
       deleted: false
     }
     TodoModel.create(newTodo, (id) => {
