@@ -6,6 +6,7 @@ import {getCurrentUser, signOut, TodoModel} from './leanCloud'
 import './App.css';
 import 'normalize.css'
 import './reset.css'
+import { Button } from 'antd';
 
 class App extends Component {
   constructor(props){
@@ -14,7 +15,9 @@ class App extends Component {
       user: getCurrentUser() || {},
       newTodo: '',
       newContent:'',
-      todoList: []
+      todoList: [],
+      visible: false,
+      InputShow:false
     }
     let user = getCurrentUser()
     if (user) {
@@ -24,6 +27,7 @@ class App extends Component {
         this.setState(stateCopy)
       })
     }
+    
   }
   render() {
     let todos = this.state.todoList
@@ -40,18 +44,22 @@ class App extends Component {
     })
     return (
       <div className="App">
-        <h1>Todo List</h1>
+        <div className='logo'>
+          <span>Todo <span className='spanStyle'>Lists</span></span>
+        </div>
         <h3>
-          {this.state.user.username||'我'}的待办
-          {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
+          {this.state.user.username||'我'}的待办事项
         </h3>
+          {this.state.user.id ? <Button type="primary" onClick={this.signOut.bind(this)}>登出</Button> : null}  <br/>
+          <div className='plus' onClick={this.showInput.bind(this)}>+</div>
         <div className="inputWrapper">
-          <TodoInput 
+          {this.state.InputShow === false?null:<TodoInput 
           content={this.state.newTodo}
           contents={this.state.newContent}
           onSubmit={this.addTodo.bind(this)}
           onChange={this.changeTitle.bind(this)}
-          />
+          />}
+          
         </div>
         <ol className="todoList">
           {todos}
@@ -117,6 +125,11 @@ class App extends Component {
     TodoModel.destroy(todo.id, () => {
       todo.deleted = true
       this.setState(this.state)
+    })
+  }
+  showInput(e){
+    this.setState({
+      InputShow:!this.state.InputShow
     })
   }
 }

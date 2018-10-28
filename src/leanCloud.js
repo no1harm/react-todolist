@@ -1,4 +1,4 @@
-import AV from 'leancloud-storage'
+import AV from "leancloud-storage"
 
 var APP_ID = 'RPWGaqvaJi7fUh3HBoT6TqP4-gzGzoHsz';
 var APP_KEY = '520Y7aeHCJycPnBzxymEb2Ya';

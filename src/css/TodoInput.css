@@ -1,0 +1,12 @@
+.Inputstyle{
+    min-width: 300px;
+    height: 32px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.InputForm{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

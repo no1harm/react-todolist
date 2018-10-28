@@ -1,17 +1,55 @@
+@import '~antd/dist/antd.css';
 .App {
   color: #333;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+  border: none;
+  border-radius: 6px;
   background: white;
   margin: 2em;
-  padding: 0 1em;
+  padding: 0 2em;
   min-height: 20em;
   min-width: 32em;
   box-shadow: 0 0 1em hsla(0,0%,0%,0.15);
 }
-.App > .todoList> li:nth-child(odd){
-  background: #eee;
+.App > .plus{
+  font-size: 30px;
+  color:#fff;
+  background-color: #19DB7A;
+  padding: 8px 22px;
+  border-radius: 6px;
+  width: 66px;
+  margin: 20px 0 20px;
+  display: inline-block;
 }
-.App > .todoList> li:nth-child(even){
-  background: transparent;
+.App > .plus:hover{
+  cursor: pointer;
+  box-shadow: 5px 5px 22px -5px rgba(0,0,0,0.25);
+}
+.App .todoList{
+  margin: 20px 0;
+  max-width: 390px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.App .todoList li{
+  margin-bottom: 10px; 
+}
+.App .todoList li:hover{
+  box-shadow: 5px 5px 22px -5px rgba(0,0,0,0.25);
+}
+.App > .logo{
+  text-align: center;
+  padding: 36px 10px;
+}
+.App > .logo > span{
+  font-size: 40px;
+  font-weight: 600;
+}
+.App > .logo > span >.spanStyle{
+  font-weight: 300;
+  color: #B0A3A7;
+}
+.App > h3{
+  padding-bottom:28px;
 }

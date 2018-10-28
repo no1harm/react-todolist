@@ -5,23 +5,22 @@
   }
   .UserDialog{
     border-radius: 4px;
-    min-width: 20em;
+    min-width: 23em;
+    max-width: 30em;
     background: white;
     border: 1px solid #aaa;
     box-shadow: 0 0 1em hsla(0,0%,0%,0.35);
   }
-  .UserDialog > nav:first-child{ padding: 1em; margin-left: -2em;}
-  .UserDialog > nav:first-child label{ margin-left: 2em; cursor: pointer;}
+  .UserDialog > nav:first-child{ padding: 1.2em; margin-left: -2em;}
   .UserDialog .signInOrSignUp > nav:first-child{ padding: 1em; margin-left: -2em;}
 .UserDialog .signInOrSignUp > nav:first-child label{ margin-left: 2em; cursor: pointer;}
 .UserDialog .signInOrSignUp > .panes { padding: 0 1em 1em; }
-  
+
 .UserDialog .forgotPassword > h3 { padding: 1em; }
-.UserDialog .forgotPassword > form { padding: 0 1em 1em; }
-  
-  .UserDialog form>.row{ display: flex; padding: .3em 0; }
+.UserDialog .forgotPassword > form >.row.actions{ padding-left: 0; display: flex; align-items: center;}
+/* .UserDialog .forgotPassword > form >.row.actions>button{min-width: 21.5em;} */
+.UserDialog .forgotPassword > form >.row{ display: flex; padding: .6em 0;margin: 0 .6em; }
+  .UserDialog form>.row{ display: flex; padding: .6em 0; }
   .UserDialog form>.row>label:first-child{ width: 4em; }
-  .UserDialog form>.row.actions{ padding-left: 4em; }
-  .UserDialog form>.row.actions{ padding-left: 4em; display: flex; align-items: center;}
-.UserDialog form>.row.actions button{ margin-right: .5em; }
- .UserDialog button{font: inherit; padding: .2em;}
+  .UserDialog form>.row.actions{ padding-left: 0; display: flex; align-items: center;}
+  .UserDialog form>.row.actions>button{min-width: 21.5em;}

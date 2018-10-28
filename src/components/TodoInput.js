@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Input,Button } from 'antd';
+import '../css/TodoInput.css'
 
 class TodoInput extends Component{
     constructor(props) {
@@ -9,42 +11,43 @@ class TodoInput extends Component{
         // const target = event.target;
         // const value = target.type === 'checkbox' ? target.checked : target.value;
         // const name = target.name;
-        let title = this.refs.title.value,content= this.refs.content.value;
+        let title = this.refs.title.value
         // console.log(title,content);
         // this.props.onCommentSubmit({title,content});
-        
+        let content = ''
         this.props.onChange({title,content})
         
       }
     render(){
         return (
-        <form>
+        <form className='InputForm'>
             <label>
-                标题:
-                <input type='text' 
+                <input
+                className='Inputstyle'
                 name='title'
                 ref="title"
+                placeholder="  添加 Todo"
+                style={{ maxWidth: 200 }}
                 value={this.props.content} 
-                // onKeyPress={this.submit.bind(this)}
+                onKeyPress={this.submit.bind(this)}
                 onChange={this.handleInputChange}
                 />
             </label>
-            <label>
-                内容:
-                <textarea
-                name='content' 
-                ref="content"
-                value={this.props.contents}
-                onChange={this.handleInputChange}
-                />
-            </label>
-            <button onClick={this.submit.bind(this)}>提交</button>
+            <Button onClick={this.submit2.bind(this)}>添加</Button>
         </form>)
     }
     submit(e){
+        if(e.key === 'Enter'){
+            e.preventDefault()
+            let title = this.refs.title.value
+            let content = ''
+            this.props.onSubmit({title,content})
+        }
+    }
+    submit2(e){
         e.preventDefault()
-        let title = this.refs.title.value,content= this.refs.content.value;
-        console.log(title,content);
+        let title = this.refs.title.value
+        let content = ''
         this.props.onSubmit({title,content})
     }
     changeTitle(e){

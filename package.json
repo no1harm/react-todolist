@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://no1harm.github.io/react-todolist/build",
   "dependencies": {
+    "antd": "^3.10.3",
     "leancloud-storage": "^3.10.0",
     "normalize.css": "^8.0.0",
     "react": "^16.6.0",
