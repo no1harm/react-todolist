@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card,Checkbox,Icon } from 'antd';
 import '../css/TodoItem.css'
 import style from '../css/change.css'
+// import Texty from 'rc-texty';
 
 class TodoItem extends Component{
     render(){
@@ -19,7 +20,7 @@ class TodoItem extends Component{
                 onClick={this.delete.bind(this)}/>}
             style={{ width: 186 }}
             >
-                <p className={this.props.todo.status === 'completed'?'changeColor':''}>{this.props.todo.title}</p> 
+                <p className={this.props.todo.status === 'completed'?'changeColor':''}>{this.props.todo.title}</p>
             </Card>
         </div>)
     }

@@ -7,6 +7,7 @@ import './App.css';
 import 'normalize.css'
 import './reset.css'
 import { Button } from 'antd';
+import QueueAnim from 'rc-queue-anim';
 
 class App extends Component {
   constructor(props){
@@ -34,12 +35,14 @@ class App extends Component {
     .filter((item) => !item.deleted)
     .map((item,index)=>{
       return (
-        <li key={index}>
-          <TodoItem todo={item} 
-          onToggle={this.toggle.bind(this)}
-          onDelete={this.delete.bind(this)}
-            />
-        </li>
+        <QueueAnim type={['top', 'bottom']} delay={300} leaveReverse>    
+          <li key={index}>
+            <TodoItem todo={item} 
+            onToggle={this.toggle.bind(this)}
+            onDelete={this.delete.bind(this)}
+              />
+          </li>
+        </QueueAnim>
       )
     })
     return (
@@ -48,7 +51,7 @@ class App extends Component {
           <span>Todo <span className='spanStyle'>Lists</span></span>
         </div>
         <h2>{this.state.user.username||'我'}的待办事项</h2>
-          {this.state.user.id ? <Button type="primary" className='SignOutBtn' onClick={this.signOut.bind(this)}>登出</Button> : null}  <br/>
+          {this.state.user.id ? <Button  className='SignOutBtn' onClick={this.signOut.bind(this)}>登出</Button> : null}  <br/>
           <div className='plus' onClick={this.showInput.bind(this)}>+</div>
         <div className="inputWrapper">
           {this.state.InputShow === false?null:<TodoInput 

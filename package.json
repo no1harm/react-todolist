@@ -7,6 +7,8 @@
     "antd": "^3.10.3",
     "leancloud-storage": "^3.10.0",
     "normalize.css": "^8.0.0",
+    "rc-queue-anim": "^1.6.7",
+    "rc-texty": "^0.2.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts": "2.0.5"
