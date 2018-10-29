@@ -10,3 +10,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+@media (max-width:768px){
+    .Inputstyle{
+        min-width: 268px;
+    }
+  }

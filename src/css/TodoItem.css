@@ -5,3 +5,8 @@
 p{
   word-wrap:break-word;
 }
+@media (max-width:768px){
+  .TodoItem{
+    width: 168px;
+  }
+}

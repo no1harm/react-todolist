@@ -6,7 +6,7 @@ import {getCurrentUser, signOut, TodoModel} from './leanCloud'
 import './App.css';
 import 'normalize.css'
 import './reset.css'
-import { Button } from 'antd';
+import { Button,Layout } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 
 class App extends Component {
@@ -31,6 +31,7 @@ class App extends Component {
     
   }
   render() {
+  const { Header, Footer, Sider, Content } = Layout
     let todos = this.state.todoList
     .filter((item) => !item.deleted)
     .map((item,index)=>{
@@ -65,11 +66,15 @@ class App extends Component {
         <ol className="todoList">
           {todos}
         </ol>
+        <Footer style={{marginBottom:40,backgroundColor:"#fff"}}>
+          <Button  icon="zhihu" href='https://www.zhihu.com/people/chen-jun-kun/posts'>Blog</Button>
+          <Button  icon="github" href='https://github.com/no1harm/react-todolist'>GitHub</Button>
+          </Footer>
         {this.state.user.id ? 
           null : 
           <UserDialog 
           onSignUp={this.onSignUpOrSignIn.bind(this)} 
-          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
+          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}       
       </div>
     );
   }

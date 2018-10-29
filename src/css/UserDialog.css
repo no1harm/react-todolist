@@ -24,3 +24,9 @@
   .UserDialog form>.row>label:first-child{ width: 4em; }
   .UserDialog form>.row.actions{ padding-left: 0; display: flex; align-items: center;}
   .UserDialog form>.row.actions>button{min-width: 21.5em;}
+  @media (max-width:768px){
+    .App{
+      min-width: 18em;
+      margin: 0;
+    }
+  }

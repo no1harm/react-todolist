@@ -56,3 +56,26 @@
 .App > .SignOutBtn{
   float: right;
 }
+.App > .ant-layout-footer{
+  text-align: center;
+}
+.App > .ant-layout-footer > button{
+  margin: 0 6px;
+}
+@media (max-width:768px){
+  .App{
+    min-width: 26.6em;
+    margin: 0;
+    padding: 0 1em;
+  }
+  .App .todoList{
+    margin: 20px 0 20px;
+  }
+  .App > .SignOutBtn{
+    float: none;
+    margin-left: 20px;
+  }
+  .App .ant-layout-footer{
+    height: 69px;
+  }
+}
