@@ -31,6 +31,7 @@ export default class UserDialog extends Component{
       }
     }
     signUp(email, username, password, success, error)
+    window.location.reload();
   }
   signIn(e){
     e.preventDefault()
@@ -49,6 +50,7 @@ export default class UserDialog extends Component{
       }
     }
     signIn(username, password, success, error)
+    window.location.reload();
   }
   
   changeFormData(key,e){

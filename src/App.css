@@ -43,13 +43,16 @@
   padding: 36px 10px;
 }
 .App > .logo > span{
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 600;
 }
 .App > .logo > span >.spanStyle{
   font-weight: 300;
   color: #B0A3A7;
 }
-.App > h3{
-  padding-bottom:28px;
+.App > h2{
+  display: inline-block;
+}
+.App > .SignOutBtn{
+  float: right;
 }

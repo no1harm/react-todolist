@@ -47,10 +47,8 @@ class App extends Component {
         <div className='logo'>
           <span>Todo <span className='spanStyle'>Lists</span></span>
         </div>
-        <h3>
-          {this.state.user.username||'我'}的待办事项
-        </h3>
-          {this.state.user.id ? <Button type="primary" onClick={this.signOut.bind(this)}>登出</Button> : null}  <br/>
+        <h2>{this.state.user.username||'我'}的待办事项</h2>
+          {this.state.user.id ? <Button type="primary" className='SignOutBtn' onClick={this.signOut.bind(this)}>登出</Button> : null}  <br/>
           <div className='plus' onClick={this.showInput.bind(this)}>+</div>
         <div className="inputWrapper">
           {this.state.InputShow === false?null:<TodoInput 

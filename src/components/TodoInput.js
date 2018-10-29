@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input,Button } from 'antd';
+import { Button } from 'antd';
 import '../css/TodoInput.css'
 
 class TodoInput extends Component{
