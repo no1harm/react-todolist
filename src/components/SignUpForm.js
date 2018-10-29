@@ -12,8 +12,9 @@ export default function (props) {
       </div>
       <div className="row">
         <Input type="text" value={props.formData.username}
+          maxLength="10"
           onChange={props.onChange.bind(null, 'username')}
-          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username 限制10个字符" />
         {/* bind 不仅可以绑定 this，还可以绑定第一个参数 */}
       </div>
       <div className="row">
