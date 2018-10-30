@@ -59,7 +59,7 @@
 .App > .ant-layout-footer{
   text-align: center;
 }
-.App > .ant-layout-footer > button{
+.App > .ant-layout-footer > a{
   margin: 0 6px;
 }
 @media (max-width:768px){
